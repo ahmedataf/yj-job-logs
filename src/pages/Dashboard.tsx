@@ -138,29 +138,42 @@ export default function Dashboard() {
           </CardContent>
         </Card>
 
-        {/* Quick Stats */}
+        {/* Error Logs */}
         <Card className="shadow-subtle">
           <CardHeader>
-            <CardTitle>System Health</CardTitle>
-            <CardDescription>Current system status</CardDescription>
+            <CardTitle className="flex items-center gap-2">
+              <AlertTriangle className="h-5 w-5" />
+              Recent Error Logs
+            </CardTitle>
+            <CardDescription>Latest system errors and warnings</CardDescription>
           </CardHeader>
-          <CardContent className="space-y-4">
-            <div className="flex items-center justify-between">
-              <span className="text-sm text-muted-foreground">Upload Success Rate</span>
-              <span className="text-sm font-medium text-success">98.2%</span>
+          <CardContent className="space-y-3">
+            <div className="flex items-center justify-between p-2 border border-border rounded-lg">
+              <div className="flex items-center gap-2">
+                <Badge variant="destructive" className="w-2 h-2 p-0 rounded-full" />
+                <span className="text-sm text-foreground">Excel parsing failed</span>
+              </div>
+              <span className="text-xs text-muted-foreground">2 mins ago</span>
             </div>
-            <div className="flex items-center justify-between">
-              <span className="text-sm text-muted-foreground">Data Processing</span>
-              <Badge variant="default">Online</Badge>
+            <div className="flex items-center justify-between p-2 border border-border rounded-lg">
+              <div className="flex items-center gap-2">
+                <Badge variant="secondary" className="w-2 h-2 p-0 rounded-full" />
+                <span className="text-sm text-foreground">Missing supervisor data</span>
+              </div>
+              <span className="text-xs text-muted-foreground">15 mins ago</span>
             </div>
-            <div className="flex items-center justify-between">
-              <span className="text-sm text-muted-foreground">Last Backup</span>
-              <span className="text-sm text-muted-foreground">2 hours ago</span>
+            <div className="flex items-center justify-between p-2 border border-border rounded-lg">
+              <div className="flex items-center gap-2">
+                <Badge variant="secondary" className="w-2 h-2 p-0 rounded-full" />
+                <span className="text-sm text-foreground">Upload timeout</span>
+              </div>
+              <span className="text-xs text-muted-foreground">1 hour ago</span>
             </div>
-            <div className="flex items-center justify-between">
-              <span className="text-sm text-muted-foreground">Active Users</span>
-              <span className="text-sm font-medium text-foreground">12</span>
-            </div>
+            <Button variant="outline" size="sm" asChild className="w-full mt-3">
+              <Link to="/errors" className="flex items-center gap-2">
+                View All Errors
+              </Link>
+            </Button>
           </CardContent>
         </Card>
       </div>
