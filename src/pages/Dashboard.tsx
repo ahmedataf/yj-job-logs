@@ -1,6 +1,8 @@
-import { BarChart3, TrendingUp, Users, FileText, AlertTriangle, CheckCircle } from "lucide-react";
+import { BarChart3, TrendingUp, Users, FileText, AlertTriangle, CheckCircle, Upload, Eye } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 export default function Dashboard() {
   const stats = [
@@ -48,6 +50,35 @@ export default function Dashboard() {
         <h1 className="text-3xl font-bold text-foreground">Dashboard</h1>
         <p className="text-muted-foreground">Overview of your drilling operations and job logs</p>
       </div>
+
+      {/* Quick Actions */}
+      <Card className="shadow-subtle hover:shadow-oil transition-shadow">
+        <CardHeader>
+          <CardTitle className="flex items-center gap-2">
+            <FileText className="h-5 w-5" />
+            Quick Actions
+          </CardTitle>
+          <CardDescription>
+            Common tasks and operations
+          </CardDescription>
+        </CardHeader>
+        <CardContent>
+          <div className="flex gap-4">
+            <Button asChild className="flex-1 hover-scale">
+              <Link to="/upload" className="flex items-center gap-2">
+                <Upload className="w-4 h-4" />
+                Upload Job Log File
+              </Link>
+            </Button>
+            <Button asChild variant="outline" className="flex-1 hover-scale">
+              <Link to="/analytics" className="flex items-center gap-2">
+                <Eye className="w-4 h-4" />
+                View Analytics
+              </Link>
+            </Button>
+          </div>
+        </CardContent>
+      </Card>
 
       {/* Stats Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
