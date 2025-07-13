@@ -4,6 +4,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Layout } from "./components/Layout";
+import Index from "./pages/Index";
 import Dashboard from "./pages/Dashboard";
 import JobLogs from "./pages/JobLogs";
 import Upload from "./pages/Upload";
@@ -25,6 +26,7 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<Dashboard />} />
+            <Route path="dashboard" element={<Dashboard />} />
             <Route path="logs" element={<JobLogs />} />
             <Route path="upload" element={<Upload />} />
             <Route path="download" element={<Download />} />
